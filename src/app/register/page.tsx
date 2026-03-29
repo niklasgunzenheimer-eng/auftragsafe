@@ -8,120 +8,155 @@ import { supabase } from '@/lib/supabaseClient'
 export default function RegisterPage() {
   const router = useRouter()
 
+  const [firmName, setFirmName] = useState('')
+  const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [passwordConfirm, setPasswordConfirm] = useState('')
   const [message, setMessage] = useState('')
   const [loading, setLoading] = useState(false)
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault()
     setMessage('')
+
+    if (password !== passwordConfirm) {
+      setMessage('Passwörter stimmen nicht überein')
+      return
+    }
+
     setLoading(true)
 
     const { error } = await supabase.auth.signUp({
       email,
       password,
+      options: {
+        data: {
+          firm_name: firmName,
+          full_name: name,
+        },
+      },
     })
 
     setLoading(false)
 
     if (error) {
-      setMessage('Registrierung fehlgeschlagen.')
+      setMessage(error.message)
       return
     }
 
-    setMessage('Registrierung erfolgreich. Bitte bestätige deine E-Mail.')
+    router.push('/login?registered=true')
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-neutral-950 via-neutral-900 to-neutral-950 text-white">
-      <div className="mx-auto flex min-h-screen max-w-6xl items-center justify-center px-6 py-10">
-        <div className="grid w-full max-w-5xl overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur md:grid-cols-2">
+    <main className="min-h-screen bg-white text-gray-900">
 
-          {/* LEFT */}
-          <div className="hidden md:flex flex-col justify-between bg-white/5 p-10">
-            <div>
-              <div className="mb-6 inline-flex rounded-full border border-white/10 bg-white/10 px-3 py-1 text-sm text-white/80">
-                AuftragSafe
-              </div>
-
-              <h1 className="mb-4 text-4xl font-bold leading-tight">
-                Neues Konto erstellen.
-              </h1>
-
-              <p className="max-w-md text-white/70">
-                Registriere dich und starte mit digitalen Regieberichten,
-                klarer Dokumentation und sauberer Abrechnung.
-              </p>
-            </div>
-
-            <div className="space-y-3 text-sm text-white/70">
-              <div>Regieberichte digital erfassen</div>
-              <div>Direkt unterschreiben lassen</div>
-              <div>Alles an einem Ort</div>
-            </div>
-          </div>
-
-          {/* RIGHT */}
-          <div className="bg-white p-8 text-neutral-900 md:p-10">
-            <div className="mx-auto w-full max-w-md">
-              <div className="mb-8">
-                <h2 className="text-3xl font-bold">Registrieren</h2>
-                <p className="mt-2 text-sm text-neutral-500">
-                  Erstelle deinen AuftragSafe Zugang.
-                </p>
-              </div>
-
-              <form onSubmit={handleRegister} className="space-y-4">
-                <div>
-                  <label className="mb-2 block text-sm font-medium">E-Mail</label>
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="name@firma.de"
-                    className="w-full rounded-2xl border border-neutral-200 px-4 py-3"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="mb-2 block text-sm font-medium">Passwort</label>
-                  <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Passwort wählen"
-                    className="w-full rounded-2xl border border-neutral-200 px-4 py-3"
-                    required
-                  />
-                </div>
-
-                {message && (
-                  <div className="rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm text-neutral-700">
-                    {message}
-                  </div>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full rounded-2xl bg-neutral-950 px-4 py-3 font-medium text-white hover:bg-neutral-800 disabled:opacity-60"
-                >
-                  {loading ? 'Registrierung läuft ...' : 'Jetzt registrieren'}
-                </button>
-              </form>
-
-              <p className="mt-6 text-sm text-neutral-500">
-                Schon ein Konto?{' '}
-                <Link href="/login" className="font-medium text-neutral-900 underline">
-                  Jetzt einloggen
-                </Link>
-              </p>
-            </div>
-          </div>
-
+      {/* BETA */}
+      <div className="absolute top-4 left-4">
+        <div className="bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded">
+          BETA
         </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-12 items-center">
+
+        {/* LINKS TEXT */}
+        <div>
+          <Link href="/" className="text-sm text-gray-500 hover:text-blue-600">
+            ← Zurück zur Startseite
+          </Link>
+
+          <h1 className="mt-6 text-4xl font-bold leading-tight">
+            Konto erstellen
+            <br />
+            <span className="text-blue-600">Direkt loslegen</span>
+          </h1>
+
+          <p className="mt-4 text-gray-600 max-w-md">
+            Lege dein Konto an und beginne sofort mit der digitalen Erfassung
+            deiner Regieberichte.
+          </p>
+
+          <div className="mt-8 space-y-4 text-sm text-gray-600">
+            <div>Saubere Dokumentation ohne Papier</div>
+            <div>Unterschrift direkt vor Ort</div>
+            <div>Sofort abrechenbare Berichte</div>
+          </div>
+        </div>
+
+        {/* RECHTS FORM */}
+        <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
+
+          <h2 className="text-xl font-semibold mb-6">Registrierung</h2>
+
+          <form onSubmit={handleRegister} className="space-y-4">
+
+            <input
+              type="text"
+              placeholder="Firmenname"
+              value={firmName}
+              onChange={(e) => setFirmName(e.target.value)}
+              className="w-full border border-gray-300 rounded-xl px-4 py-3"
+              required
+            />
+
+            <input
+              type="text"
+              placeholder="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full border border-gray-300 rounded-xl px-4 py-3"
+              required
+            />
+
+            <input
+              type="email"
+              placeholder="E-Mail"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full border border-gray-300 rounded-xl px-4 py-3"
+              required
+            />
+
+            <input
+              type="password"
+              placeholder="Passwort"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full border border-gray-300 rounded-xl px-4 py-3"
+              required
+            />
+
+            <input
+              type="password"
+              placeholder="Passwort bestätigen"
+              value={passwordConfirm}
+              onChange={(e) => setPasswordConfirm(e.target.value)}
+              className="w-full border border-gray-300 rounded-xl px-4 py-3"
+              required
+            />
+
+            {message && (
+              <div className="text-sm text-red-600">{message}</div>
+            )}
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full bg-blue-600 text-white rounded-xl px-4 py-3 font-medium"
+            >
+              {loading ? 'Lädt...' : 'Konto erstellen'}
+            </button>
+          </form>
+
+          <p className="mt-6 text-sm text-gray-500">
+            Bereits registriert?{' '}
+            <Link href="/login" className="underline">
+              Zum Login
+            </Link>
+          </p>
+        </div>
+
       </div>
     </main>
   )
