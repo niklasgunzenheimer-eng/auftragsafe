@@ -8,7 +8,7 @@ export default function KundenPage() {
       {/* BETA */}
       <div className="absolute top-4 left-4">
         <div className="bg-blue-600 text-white text-xs px-3 py-1 rounded">
-          BETA
+          BETA 
         </div>
       </div>
 
