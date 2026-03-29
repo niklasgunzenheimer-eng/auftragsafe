@@ -34,95 +34,77 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-neutral-950 via-neutral-900 to-neutral-950 text-white">
-      <div className="mx-auto flex min-h-screen max-w-6xl items-center justify-center px-6 py-10">
-        <div className="grid w-full max-w-5xl overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur md:grid-cols-2">
-          
-          {/* LEFT */}
-          <div className="hidden md:flex flex-col justify-between bg-white/5 p-10">
-            <div>
-              <div className="mb-6 inline-flex rounded-full border border-white/10 bg-white/10 px-3 py-1 text-sm text-white/80">
-                AuftragSafe
-              </div>
+    <main className="min-h-screen bg-white text-gray-900">
+      <div className="absolute top-4 left-4">
+        <div className="bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded">
+          BETA
+        </div>
+      </div>
 
-              <h1 className="mb-4 text-4xl font-bold leading-tight">
-                Willkommen zurück.
-                <br />
-                Jetzt einloggen.
-              </h1>
+      <div className="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <Link href="/" className="text-sm text-gray-500 hover:text-blue-600">
+            ← Zurück zur Startseite
+          </Link>
 
-              <p className="max-w-md text-white/70">
-                Melde dich an und öffne dein Dashboard für digitale Regieberichte,
-                saubere Dokumentation und sichere Abrechnung.
-              </p>
-            </div>
+          <h1 className="mt-6 text-4xl font-bold leading-tight">
+            Willkommen zurück
+            <br />
+            <span className="text-blue-600">Jetzt einloggen</span>
+          </h1>
 
-            <div className="space-y-3 text-sm text-white/70">
-              <div>Regieberichte digital erfassen</div>
-              <div>Direkt vor Ort unterschreiben lassen</div>
-              <div>Saubere Dokumentation ohne Chaos</div>
-            </div>
+          <p className="mt-4 text-gray-600 max-w-md">
+            Melde dich an und verwalte deine digitalen Regieberichte direkt in AuftragSafe.
+          </p>
+
+          <div className="mt-8 space-y-4 text-sm text-gray-600">
+            <div>Saubere Dokumentation ohne Papier</div>
+            <div>Unterschrift direkt vor Ort</div>
+            <div>Sofort nachvollziehbare Berichte</div>
           </div>
+        </div>
 
-          {/* RIGHT */}
-          <div className="bg-white p-8 text-neutral-900 md:p-10">
-            <div className="mx-auto w-full max-w-md">
-              <div className="mb-8">
-                <h2 className="text-3xl font-bold">Anmelden</h2>
-                <p className="mt-2 text-sm text-neutral-500">
-                  Logge dich in deinen AuftragSafe Zugang ein.
-                </p>
-              </div>
+        <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
+          <h2 className="text-xl font-semibold mb-6">Login</h2>
 
-              <form onSubmit={handleLogin} className="space-y-4">
-                <div>
-                  <label className="mb-2 block text-sm font-medium">E-Mail</label>
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="name@firma.de"
-                    className="w-full rounded-2xl border border-neutral-200 bg-white px-4 py-3 outline-none focus:border-neutral-400"
-                    required
-                  />
-                </div>
+          <form onSubmit={handleLogin} className="space-y-4">
+            <input
+              type="email"
+              placeholder="E-Mail"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full border border-gray-300 rounded-xl px-4 py-3"
+              required
+            />
 
-                <div>
-                  <label className="mb-2 block text-sm font-medium">Passwort</label>
-                  <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Dein Passwort"
-                    className="w-full rounded-2xl border border-neutral-200 bg-white px-4 py-3 outline-none focus:border-neutral-400"
-                    required
-                  />
-                </div>
+            <input
+              type="password"
+              placeholder="Passwort"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full border border-gray-300 rounded-xl px-4 py-3"
+              required
+            />
 
-                {message && (
-                  <div className="rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm text-neutral-700">
-                    {message}
-                  </div>
-                )}
+            {message && (
+              <div className="text-sm text-red-600">{message}</div>
+            )}
 
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full rounded-2xl bg-neutral-950 px-4 py-3 font-medium text-white hover:bg-neutral-800 disabled:opacity-60"
-                >
-                  {loading ? 'Anmeldung läuft ...' : 'Jetzt einloggen'}
-                </button>
-              </form>
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full bg-blue-600 text-white rounded-xl px-4 py-3 font-medium"
+            >
+              {loading ? 'Lädt...' : 'Einloggen'}
+            </button>
+          </form>
 
-              <p className="mt-6 text-sm text-neutral-500">
-                Noch kein Konto?{' '}
-                <Link href="/register" className="font-medium text-neutral-900 underline">
-                  Jetzt registrieren
-                </Link>
-              </p>
-            </div>
-          </div>
-
+          <p className="mt-6 text-sm text-gray-500">
+            Noch kein Konto?{' '}
+            <Link href="/register" className="underline">
+              Jetzt registrieren
+            </Link>
+          </p>
         </div>
       </div>
     </main>
