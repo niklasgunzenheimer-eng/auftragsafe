@@ -56,21 +56,28 @@ export default function DashboardPage() {
             <span className="font-semibold">AuftragSafe</span>
           </div>
 
-          <div className="flex gap-3">
-            <Link
-              href="/regieberichte/neu"
-              className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm"
-            >
-              Neuer Regiebericht
-            </Link>
+         <div className="flex gap-3">
+  <Link
+    href="/regieberichte/neu"
+    className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm"
+  >
+    Neuer Regiebericht
+  </Link>
 
-            <button
-              onClick={handleLogout}
-              className="border px-4 py-2 rounded-lg text-sm"
-            >
-              Logout
-            </button>
-          </div>
+  <Link
+    href="/kunden"
+    className="border px-4 py-2 rounded-lg text-sm"
+  >
+    Kunden
+  </Link>
+
+  <button
+    onClick={handleLogout}
+    className="border px-4 py-2 rounded-lg text-sm"
+  >
+    Logout
+  </button>
+</div>
         </div>
       </header>
 
