@@ -12,12 +12,11 @@ import AnmerkungenFotos from '../../../components/regiebericht/AnmerkungenFotos'
 import Arbeitsstatus from '../../../components/regiebericht/Arbeitsstatus'
 import Abschluss from '../../../components/regiebericht/Abschluss'
 import Aktionen from '../../../components/regiebericht/Aktionen'
+
 type PhotoItem = {
   name: string
   url: string
 }
-
-const inputClass = 'rounded-xl border border-gray-300 px-4 py-3'
 
 export default function NeuerRegieberichtPage() {
   const [kunde, setKunde] = useState('')
@@ -200,21 +199,26 @@ export default function NeuerRegieberichtPage() {
             handlePhotoUpload={handlePhotoUpload}
           />
 
-         <Arbeitsstatus
-  arbeitsstatus={arbeitsstatus}
-  setArbeitsstatus={setArbeitsstatus}
-/>
+          <Arbeitsstatus
+            arbeitsstatus={arbeitsstatus}
+            setArbeitsstatus={setArbeitsstatus}
+          />
 
           <Abschluss
-  ort={ort}
-  setOrt={setOrt}
-  datum={datum}
-  setDatum={setDatum}
-/>
+            ort={ort}
+            setOrt={setOrt}
+            datum={datum}
+            setDatum={setDatum}
+          />
 
-         <Aktionen
-  onSave={handleSavePlaceholder}
-  onPdf={handlePdfPlaceholder}
-  onPrint={handlePrint}
-  onSend={handleSendPlaceholder}
-/>
+          <Aktionen
+            onSave={handleSavePlaceholder}
+            onPdf={handlePdfPlaceholder}
+            onPrint={handlePrint}
+            onSend={handleSendPlaceholder}
+          />
+        </div>
+      </section>
+    </main>
+  )
+}
