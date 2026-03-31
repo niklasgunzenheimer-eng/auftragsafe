@@ -5,16 +5,17 @@ import { useMemo, useState } from 'react'
 import Auftraggeber from '../../../components/regiebericht/Auftraggeber'
 import Projekt from '../../../components/regiebericht/Projekt'
 import Leistungsbeschreibung from '../../../components/regiebericht/Leistungsbeschreibung'
+import Mitarbeiter from '../../../components/regiebericht/Mitarbeiter'
 import Material from '../../../components/regiebericht/Material'
 import Fahrt from '../../../components/regiebericht/Fahrt'
 import AnmerkungenFotos from '../../../components/regiebericht/AnmerkungenFotos'
+
 type PhotoItem = {
   name: string
   url: string
 }
 
 const inputClass = 'rounded-xl border border-gray-300 px-4 py-3'
-const textareaClass = 'rounded-xl border border-gray-300 px-4 py-3'
 
 export default function NeuerRegieberichtPage() {
   const [kunde, setKunde] = useState('')
@@ -162,75 +163,40 @@ export default function NeuerRegieberichtPage() {
             setZusatzarbeiten={setZusatzarbeiten}
           />
 
-          <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
-            <h2 className="text-2xl font-bold mb-6">Mitarbeiter / Zeit</h2>
+          <Mitarbeiter
+            mitarbeiter={mitarbeiter}
+            setMitarbeiter={setMitarbeiter}
+            rolle={rolle}
+            setRolle={setRolle}
+            stunden={stunden}
+            setStunden={setStunden}
+          />
 
-            <div className="grid md:grid-cols-3 gap-4">
-              <input
-                value={mitarbeiter}
-                onChange={(e) => setMitarbeiter(e.target.value)}
-                placeholder="Mitarbeiter"
-                className={inputClass}
-              />
-              <input
-                value={rolle}
-                onChange={(e) => setRolle(e.target.value)}
-                placeholder="Rolle"
-                className={inputClass}
-              />
-              <input
-                value={stunden}
-                onChange={(e) => setStunden(e.target.value)}
-                placeholder="Stunden"
-                className={inputClass}
-              />
-            </div>
-          </div>
-
-<Material
-  maschinen={maschinen}
-  setMaschinen={setMaschinen}
-  material={material}
-  setMaterial={setMaterial}
-/>
+          <Material
+            maschinen={maschinen}
+            setMaschinen={setMaschinen}
+            material={material}
+            setMaterial={setMaterial}
+          />
 
           <Fahrt
-  fahrtStart={fahrtStart}
-  setFahrtStart={setFahrtStart}
-  fahrtZiel={fahrtZiel}
-  setFahrtZiel={setFahrtZiel}
-  fahrtKm={fahrtKm}
-  setFahrtKm={setFahrtKm}
-  fahrtZeit={fahrtZeit}
-  setFahrtZeit={setFahrtZeit}
-  handleOpenMaps={handleOpenMaps}
-/>
+            fahrtStart={fahrtStart}
+            setFahrtStart={setFahrtStart}
+            fahrtZiel={fahrtZiel}
+            setFahrtZiel={setFahrtZiel}
+            fahrtKm={fahrtKm}
+            setFahrtKm={setFahrtKm}
+            fahrtZeit={fahrtZeit}
+            setFahrtZeit={setFahrtZeit}
+            handleOpenMaps={handleOpenMaps}
+          />
 
           <AnmerkungenFotos
-  anmerkungen={anmerkungen}
-  setAnmerkungen={setAnmerkungen}
-  photos={photos}
-  handlePhotoUpload={handlePhotoUpload}
-/>
-
-            {photos.length > 0 && (
-              <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
-                {photos.map((photo, index) => (
-                  <div
-                    key={`${photo.name}-${index}`}
-                    className="rounded-2xl overflow-hidden border border-gray-200 bg-gray-50"
-                  >
-                    <img
-                      src={photo.url}
-                      alt={photo.name}
-                      className="w-full h-32 object-cover"
-                    />
-                    <div className="px-3 py-2 text-xs text-gray-500 truncate">{photo.name}</div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+            anmerkungen={anmerkungen}
+            setAnmerkungen={setAnmerkungen}
+            photos={photos}
+            handlePhotoUpload={handlePhotoUpload}
+          />
 
           <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
             <h2 className="text-2xl font-bold mb-6">Arbeitsstatus</h2>
