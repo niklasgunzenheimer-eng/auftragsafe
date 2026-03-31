@@ -9,7 +9,7 @@ import Mitarbeiter from '../../../components/regiebericht/Mitarbeiter'
 import Material from '../../../components/regiebericht/Material'
 import Fahrt from '../../../components/regiebericht/Fahrt'
 import AnmerkungenFotos from '../../../components/regiebericht/AnmerkungenFotos'
-
+import Arbeitsstatus from '../../../components/regiebericht/Arbeitsstatus'
 type PhotoItem = {
   name: string
   url: string
@@ -198,31 +198,10 @@ export default function NeuerRegieberichtPage() {
             handlePhotoUpload={handlePhotoUpload}
           />
 
-          <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
-            <h2 className="text-2xl font-bold mb-6">Arbeitsstatus</h2>
-
-            <div className="space-y-3">
-              <label className="flex items-center gap-3">
-                <input
-                  type="radio"
-                  name="arbeitsstatus"
-                  checked={arbeitsstatus === 'abgeschlossen'}
-                  onChange={() => setArbeitsstatus('abgeschlossen')}
-                />
-                <span>Arbeiten abgeschlossen</span>
-              </label>
-
-              <label className="flex items-center gap-3">
-                <input
-                  type="radio"
-                  name="arbeitsstatus"
-                  checked={arbeitsstatus === 'folgearbeiten'}
-                  onChange={() => setArbeitsstatus('folgearbeiten')}
-                />
-                <span>Folgearbeiten noch zu erledigen</span>
-              </label>
-            </div>
-          </div>
+         <Arbeitsstatus
+  arbeitsstatus={arbeitsstatus}
+  setArbeitsstatus={setArbeitsstatus}
+/>
 
           <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
             <h2 className="text-2xl font-bold mb-6">Unterschrift / Abschluss</h2>
