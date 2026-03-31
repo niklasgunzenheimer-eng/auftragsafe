@@ -168,36 +168,20 @@ export default function NeuerRegieberichtPage() {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
-            <h2 className="text-2xl font-bold mb-6">Projekt / Objekt</h2>
-
-            <div className="grid md:grid-cols-2 gap-4">
-              <input
-                value={projekt}
-                onChange={(e) => setProjekt(e.target.value)}
-                placeholder="Projekt / Bezeichnung"
-                className={inputClass}
-              />
-              <input
-                value={leistungszeitraum}
-                onChange={(e) => setLeistungszeitraum(e.target.value)}
-                placeholder="Leistungszeitraum"
-                className={inputClass}
-              />
-              <input
-                value={einsatzStrasse}
-                onChange={(e) => setEinsatzStrasse(e.target.value)}
-                placeholder="Einsatz Straße / Nr."
-                className={inputClass}
-              />
-              <input
-                value={einsatzOrt}
-                onChange={(e) => setEinsatzOrt(e.target.value)}
-                placeholder="Einsatz Ort"
-                className={inputClass}
-              />
-            </div>
-          </div>
+<Auftraggeber
+  kunde={kunde}
+  setKunde={setKunde}
+  ansprechpartner={ansprechpartner}
+  setAnsprechpartner={setAnsprechpartner}
+  kundeStrasse={kundeStrasse}
+  setKundeStrasse={setKundeStrasse}
+  kundePlzOrt={kundePlzOrt}
+  setKundePlzOrt={setKundePlzOrt}
+  kundeTelefon={kundeTelefon}
+  setKundeTelefon={setKundeTelefon}
+  kundeEmail={kundeEmail}
+  setKundeEmail={setKundeEmail}
+/>
 
           <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
             <h2 className="text-2xl font-bold mb-6">Leistungsbeschreibung</h2>
