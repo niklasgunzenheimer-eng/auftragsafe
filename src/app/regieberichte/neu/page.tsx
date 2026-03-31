@@ -11,6 +11,7 @@ import Fahrt from '../../../components/regiebericht/Fahrt'
 import AnmerkungenFotos from '../../../components/regiebericht/AnmerkungenFotos'
 import Arbeitsstatus from '../../../components/regiebericht/Arbeitsstatus'
 import Abschluss from '../../../components/regiebericht/Abschluss'
+import Aktionen from '../../../components/regiebericht/Aktionen'
 type PhotoItem = {
   name: string
   url: string
@@ -211,43 +212,9 @@ export default function NeuerRegieberichtPage() {
   setDatum={setDatum}
 />
 
-          <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
-            <div className="flex flex-wrap gap-4">
-              <button
-                type="button"
-                onClick={handleSavePlaceholder}
-                className="bg-blue-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-blue-700 transition"
-              >
-                Speichern
-              </button>
-
-              <button
-                type="button"
-                onClick={handlePdfPlaceholder}
-                className="border border-gray-300 px-6 py-3 rounded-xl font-medium hover:bg-gray-50 transition"
-              >
-                PDF erzeugen
-              </button>
-
-              <button
-                type="button"
-                onClick={handlePrint}
-                className="border border-gray-300 px-6 py-3 rounded-xl font-medium hover:bg-gray-50 transition"
-              >
-                Drucken
-              </button>
-
-              <button
-                type="button"
-                onClick={handleSendPlaceholder}
-                className="border border-gray-300 px-6 py-3 rounded-xl font-medium hover:bg-gray-50 transition"
-              >
-                Senden
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-  )
-}
+         <Aktionen
+  onSave={handleSavePlaceholder}
+  onPdf={handlePdfPlaceholder}
+  onPrint={handlePrint}
+  onSend={handleSendPlaceholder}
+/>
