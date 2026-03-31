@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import Auftraggeber from '../../../components/regiebericht/Auftraggeber'
 import Projekt from '../../../components/regiebericht/Projekt'
+import Leistungsbeschreibung from '../../../components/regiebericht/Leistungsbeschreibung'
 
 type PhotoItem = {
   name: string
@@ -152,24 +153,12 @@ export default function NeuerRegieberichtPage() {
             setEinsatzOrt={setEinsatzOrt}
           />
 
-          <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
-            <h2 className="text-2xl font-bold mb-6">Leistungsbeschreibung</h2>
-
-            <div className="grid md:grid-cols-2 gap-4">
-              <textarea
-                value={leistungsbeschreibung}
-                onChange={(e) => setLeistungsbeschreibung(e.target.value)}
-                placeholder="Was wurde gemacht?"
-                className={`min-h-[180px] ${textareaClass}`}
-              />
-              <textarea
-                value={zusatzarbeiten}
-                onChange={(e) => setZusatzarbeiten(e.target.value)}
-                placeholder="Zusatzarbeiten"
-                className={`min-h-[180px] ${textareaClass}`}
-              />
-            </div>
-          </div>
+          <Leistungsbeschreibung
+            leistungsbeschreibung={leistungsbeschreibung}
+            setLeistungsbeschreibung={setLeistungsbeschreibung}
+            zusatzarbeiten={zusatzarbeiten}
+            setZusatzarbeiten={setZusatzarbeiten}
+          />
 
           <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
             <h2 className="text-2xl font-bold mb-6">Mitarbeiter / Zeit</h2>
