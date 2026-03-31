@@ -10,6 +10,7 @@ import Material from '../../../components/regiebericht/Material'
 import Fahrt from '../../../components/regiebericht/Fahrt'
 import AnmerkungenFotos from '../../../components/regiebericht/AnmerkungenFotos'
 import Arbeitsstatus from '../../../components/regiebericht/Arbeitsstatus'
+import Abschluss from '../../../components/regiebericht/Abschluss'
 type PhotoItem = {
   name: string
   url: string
@@ -203,34 +204,12 @@ export default function NeuerRegieberichtPage() {
   setArbeitsstatus={setArbeitsstatus}
 />
 
-          <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
-            <h2 className="text-2xl font-bold mb-6">Unterschrift / Abschluss</h2>
-
-            <div className="grid md:grid-cols-2 gap-4 mb-4">
-              <input
-                value={ort}
-                onChange={(e) => setOrt(e.target.value)}
-                placeholder="Ort"
-                className={inputClass}
-              />
-              <input
-                type="date"
-                value={datum}
-                onChange={(e) => setDatum(e.target.value)}
-                className={inputClass}
-              />
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="rounded-2xl border border-dashed border-gray-300 bg-gray-50 p-8 text-center text-gray-500">
-                Unterschrift Auftraggeber
-              </div>
-
-              <div className="rounded-2xl border border-dashed border-gray-300 bg-gray-50 p-8 text-center text-gray-500">
-                Unterschrift Auftragnehmer
-              </div>
-            </div>
-          </div>
+          <Abschluss
+  ort={ort}
+  setOrt={setOrt}
+  datum={datum}
+  setDatum={setDatum}
+/>
 
           <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
             <div className="flex flex-wrap gap-4">
