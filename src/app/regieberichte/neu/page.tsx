@@ -2,8 +2,8 @@
 
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
-import Auftraggeber from '../../../components/regiebericht/Auftraggeber.tsx'
-import Projekt from '../../../components/regiebericht/Projekt.tsx'
+import Auftraggeber from '../../../components/regiebericht/Auftraggeber
+import Projekt from '../../../components/regiebericht/Projekt
 
 type PhotoItem = {
   name: string
