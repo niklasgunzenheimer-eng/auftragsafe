@@ -2,8 +2,9 @@
 
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
-import Auftraggeber from '../../../components/regiebericht/Auftraggeber'
-import Projekt from '../../../components/regiebericht/Projekt'
+import Auftraggeber from '../../../components/regiebericht/Auftraggeber.tsx'
+import Projekt from '../../../components/regiebericht/Projekt.tsx'
+
 type PhotoItem = {
   name: string
   url: string
@@ -125,23 +126,31 @@ export default function NeuerRegieberichtPage() {
         </div>
 
         <div className="space-y-8">
-    
-    
+          <Auftraggeber
+            kunde={kunde}
+            setKunde={setKunde}
+            ansprechpartner={ansprechpartner}
+            setAnsprechpartner={setAnsprechpartner}
+            kundeStrasse={kundeStrasse}
+            setKundeStrasse={setKundeStrasse}
+            kundePlzOrt={kundePlzOrt}
+            setKundePlzOrt={setKundePlzOrt}
+            kundeTelefon={kundeTelefon}
+            setKundeTelefon={setKundeTelefon}
+            kundeEmail={kundeEmail}
+            setKundeEmail={setKundeEmail}
+          />
 
-<Auftraggeber
-  kunde={kunde}
-  setKunde={setKunde}
-  ansprechpartner={ansprechpartner}
-  setAnsprechpartner={setAnsprechpartner}
-  kundeStrasse={kundeStrasse}
-  setKundeStrasse={setKundeStrasse}
-  kundePlzOrt={kundePlzOrt}
-  setKundePlzOrt={setKundePlzOrt}
-  kundeTelefon={kundeTelefon}
-  setKundeTelefon={setKundeTelefon}
-  kundeEmail={kundeEmail}
-  setKundeEmail={setKundeEmail}
-/>
+          <Projekt
+            projekt={projekt}
+            setProjekt={setProjekt}
+            leistungszeitraum={leistungszeitraum}
+            setLeistungszeitraum={setLeistungszeitraum}
+            einsatzStrasse={einsatzStrasse}
+            setEinsatzStrasse={setEinsatzStrasse}
+            einsatzOrt={einsatzOrt}
+            setEinsatzOrt={setEinsatzOrt}
+          />
 
           <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
             <h2 className="text-2xl font-bold mb-6">Leistungsbeschreibung</h2>
