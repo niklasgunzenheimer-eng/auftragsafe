@@ -6,6 +6,7 @@ import Auftraggeber from '../../../components/regiebericht/Auftraggeber'
 import Projekt from '../../../components/regiebericht/Projekt'
 import Leistungsbeschreibung from '../../../components/regiebericht/Leistungsbeschreibung'
 import Material from '../../../components/regiebericht/Material'
+import Fahrt from '../../../components/regiebericht/Fahrt'
 type PhotoItem = {
   name: string
   url: string
@@ -192,46 +193,17 @@ export default function NeuerRegieberichtPage() {
   setMaterial={setMaterial}
 />
 
-          <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
-            <h2 className="text-2xl font-bold mb-6">Fahrt / Kilometer</h2>
-
-            <div className="grid md:grid-cols-2 gap-4">
-              <input
-                value={fahrtStart}
-                onChange={(e) => setFahrtStart(e.target.value)}
-                placeholder="Startadresse"
-                className={inputClass}
-              />
-              <input
-                value={fahrtZiel}
-                onChange={(e) => setFahrtZiel(e.target.value)}
-                placeholder="Zieladresse"
-                className={inputClass}
-              />
-              <input
-                value={fahrtKm}
-                onChange={(e) => setFahrtKm(e.target.value)}
-                placeholder="Kilometer"
-                className={inputClass}
-              />
-              <input
-                value={fahrtZeit}
-                onChange={(e) => setFahrtZeit(e.target.value)}
-                placeholder="Fahrzeit"
-                className={inputClass}
-              />
-            </div>
-
-            <div className="mt-4">
-              <button
-                type="button"
-                onClick={handleOpenMaps}
-                className="bg-blue-600 text-white px-5 py-3 rounded-xl font-medium hover:bg-blue-700 transition"
-              >
-                In Maps öffnen
-              </button>
-            </div>
-          </div>
+          <Fahrt
+  fahrtStart={fahrtStart}
+  setFahrtStart={setFahrtStart}
+  fahrtZiel={fahrtZiel}
+  setFahrtZiel={setFahrtZiel}
+  fahrtKm={fahrtKm}
+  setFahrtKm={setFahrtKm}
+  fahrtZeit={fahrtZeit}
+  setFahrtZeit={setFahrtZeit}
+  handleOpenMaps={handleOpenMaps}
+/>
 
           <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
             <h2 className="text-2xl font-bold mb-6">Anmerkungen / Fotos</h2>
