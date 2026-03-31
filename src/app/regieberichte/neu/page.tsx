@@ -8,6 +8,9 @@ type PhotoItem = {
   url: string
 }
 
+const inputClass = 'rounded-xl border border-gray-300 px-4 py-3'
+const textareaClass = 'rounded-xl border border-gray-300 px-4 py-3'
+
 export default function NeuerRegieberichtPage() {
   const [kunde, setKunde] = useState('')
   const [ansprechpartner, setAnsprechpartner] = useState('')
@@ -129,37 +132,37 @@ export default function NeuerRegieberichtPage() {
                 value={kunde}
                 onChange={(e) => setKunde(e.target.value)}
                 placeholder="Kunde / Firma"
-                className="rounded-xl border border-gray-300 px-4 py-3"
+                className={inputClass}
               />
               <input
                 value={ansprechpartner}
                 onChange={(e) => setAnsprechpartner(e.target.value)}
                 placeholder="Ansprechpartner"
-                className="rounded-xl border border-gray-300 px-4 py-3"
+                className={inputClass}
               />
               <input
                 value={kundeStrasse}
                 onChange={(e) => setKundeStrasse(e.target.value)}
                 placeholder="Straße / Nr."
-                className="rounded-xl border border-gray-300 px-4 py-3"
+                className={inputClass}
               />
               <input
                 value={kundePlzOrt}
                 onChange={(e) => setKundePlzOrt(e.target.value)}
                 placeholder="PLZ / Ort"
-                className="rounded-xl border border-gray-300 px-4 py-3"
+                className={inputClass}
               />
               <input
                 value={kundeTelefon}
                 onChange={(e) => setKundeTelefon(e.target.value)}
                 placeholder="Telefon"
-                className="rounded-xl border border-gray-300 px-4 py-3"
+                className={inputClass}
               />
               <input
                 value={kundeEmail}
                 onChange={(e) => setKundeEmail(e.target.value)}
                 placeholder="E-Mail"
-                className="rounded-xl border border-gray-300 px-4 py-3"
+                className={inputClass}
               />
             </div>
           </div>
@@ -172,25 +175,25 @@ export default function NeuerRegieberichtPage() {
                 value={projekt}
                 onChange={(e) => setProjekt(e.target.value)}
                 placeholder="Projekt / Bezeichnung"
-                className="rounded-xl border border-gray-300 px-4 py-3"
+                className={inputClass}
               />
               <input
                 value={leistungszeitraum}
                 onChange={(e) => setLeistungszeitraum(e.target.value)}
                 placeholder="Leistungszeitraum"
-                className="rounded-xl border border-gray-300 px-4 py-3"
+                className={inputClass}
               />
               <input
                 value={einsatzStrasse}
                 onChange={(e) => setEinsatzStrasse(e.target.value)}
                 placeholder="Einsatz Straße / Nr."
-                className="rounded-xl border border-gray-300 px-4 py-3"
+                className={inputClass}
               />
               <input
                 value={einsatzOrt}
                 onChange={(e) => setEinsatzOrt(e.target.value)}
                 placeholder="Einsatz Ort"
-                className="rounded-xl border border-gray-300 px-4 py-3"
+                className={inputClass}
               />
             </div>
           </div>
@@ -203,13 +206,13 @@ export default function NeuerRegieberichtPage() {
                 value={leistungsbeschreibung}
                 onChange={(e) => setLeistungsbeschreibung(e.target.value)}
                 placeholder="Was wurde gemacht?"
-                className="min-h-[180px] rounded-xl border border-gray-300 px-4 py-3"
+                className={`min-h-[180px] ${textareaClass}`}
               />
               <textarea
                 value={zusatzarbeiten}
                 onChange={(e) => setZusatzarbeiten(e.target.value)}
                 placeholder="Zusatzarbeiten"
-                className="min-h-[180px] rounded-xl border border-gray-300 px-4 py-3"
+                className={`min-h-[180px] ${textareaClass}`}
               />
             </div>
           </div>
@@ -222,19 +225,19 @@ export default function NeuerRegieberichtPage() {
                 value={mitarbeiter}
                 onChange={(e) => setMitarbeiter(e.target.value)}
                 placeholder="Mitarbeiter"
-                className="rounded-xl border border-gray-300 px-4 py-3"
+                className={inputClass}
               />
               <input
                 value={rolle}
                 onChange={(e) => setRolle(e.target.value)}
                 placeholder="Rolle"
-                className="rounded-xl border border-gray-300 px-4 py-3"
+                className={inputClass}
               />
               <input
                 value={stunden}
                 onChange={(e) => setStunden(e.target.value)}
                 placeholder="Stunden"
-                className="rounded-xl border border-gray-300 px-4 py-3"
+                className={inputClass}
               />
             </div>
           </div>
@@ -247,13 +250,13 @@ export default function NeuerRegieberichtPage() {
                 value={maschinen}
                 onChange={(e) => setMaschinen(e.target.value)}
                 placeholder="Maschinen / Geräte"
-                className="min-h-[140px] rounded-xl border border-gray-300 px-4 py-3"
+                className={`min-h-[140px] ${textareaClass}`}
               />
               <textarea
                 value={material}
                 onChange={(e) => setMaterial(e.target.value)}
                 placeholder="Materialverbrauch"
-                className="min-h-[140px] rounded-xl border border-gray-300 px-4 py-3"
+                className={`min-h-[140px] ${textareaClass}`}
               />
             </div>
           </div>
@@ -266,25 +269,25 @@ export default function NeuerRegieberichtPage() {
                 value={fahrtStart}
                 onChange={(e) => setFahrtStart(e.target.value)}
                 placeholder="Startadresse"
-                className="rounded-xl border border-gray-300 px-4 py-3"
+                className={inputClass}
               />
               <input
                 value={fahrtZiel}
                 onChange={(e) => setFahrtZiel(e.target.value)}
                 placeholder="Zieladresse"
-                className="rounded-xl border border-gray-300 px-4 py-3"
+                className={inputClass}
               />
               <input
                 value={fahrtKm}
                 onChange={(e) => setFahrtKm(e.target.value)}
                 placeholder="Kilometer"
-                className="rounded-xl border border-gray-300 px-4 py-3"
+                className={inputClass}
               />
               <input
                 value={fahrtZeit}
                 onChange={(e) => setFahrtZeit(e.target.value)}
                 placeholder="Fahrzeit"
-                className="rounded-xl border border-gray-300 px-4 py-3"
+                className={inputClass}
               />
             </div>
 
@@ -306,7 +309,7 @@ export default function NeuerRegieberichtPage() {
               value={anmerkungen}
               onChange={(e) => setAnmerkungen(e.target.value)}
               placeholder="Anmerkungen"
-              className="w-full min-h-[140px] rounded-xl border border-gray-300 px-4 py-3"
+              className={`w-full min-h-[140px] ${textareaClass}`}
             />
 
             <div className="mt-6">
@@ -326,7 +329,10 @@ export default function NeuerRegieberichtPage() {
             {photos.length > 0 && (
               <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
                 {photos.map((photo, index) => (
-                  <div key={`${photo.name}-${index}`} className="rounded-2xl overflow-hidden border border-gray-200 bg-gray-50">
+                  <div
+                    key={`${photo.name}-${index}`}
+                    className="rounded-2xl overflow-hidden border border-gray-200 bg-gray-50"
+                  >
                     <img
                       src={photo.url}
                       alt={photo.name}
@@ -373,13 +379,13 @@ export default function NeuerRegieberichtPage() {
                 value={ort}
                 onChange={(e) => setOrt(e.target.value)}
                 placeholder="Ort"
-                className="rounded-xl border border-gray-300 px-4 py-3"
+                className={inputClass}
               />
               <input
                 type="date"
                 value={datum}
                 onChange={(e) => setDatum(e.target.value)}
-                className="rounded-xl border border-gray-300 px-4 py-3"
+                className={inputClass}
               />
             </div>
 
