@@ -7,6 +7,7 @@ import Projekt from '../../../components/regiebericht/Projekt'
 import Leistungsbeschreibung from '../../../components/regiebericht/Leistungsbeschreibung'
 import Material from '../../../components/regiebericht/Material'
 import Fahrt from '../../../components/regiebericht/Fahrt'
+import AnmerkungenFotos from '../../../components/regiebericht/AnmerkungenFotos'
 type PhotoItem = {
   name: string
   url: string
@@ -205,29 +206,12 @@ export default function NeuerRegieberichtPage() {
   handleOpenMaps={handleOpenMaps}
 />
 
-          <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
-            <h2 className="text-2xl font-bold mb-6">Anmerkungen / Fotos</h2>
-
-            <textarea
-              value={anmerkungen}
-              onChange={(e) => setAnmerkungen(e.target.value)}
-              placeholder="Anmerkungen"
-              className={`w-full min-h-[140px] ${textareaClass}`}
-            />
-
-            <div className="mt-6">
-              <label className="inline-flex items-center bg-blue-600 text-white px-5 py-3 rounded-xl font-medium hover:bg-blue-700 transition cursor-pointer">
-                Foto hinzufügen
-                <input
-                  type="file"
-                  accept="image/*"
-                  capture="environment"
-                  multiple
-                  onChange={handlePhotoUpload}
-                  className="hidden"
-                />
-              </label>
-            </div>
+          <AnmerkungenFotos
+  anmerkungen={anmerkungen}
+  setAnmerkungen={setAnmerkungen}
+  photos={photos}
+  handlePhotoUpload={handlePhotoUpload}
+/>
 
             {photos.length > 0 && (
               <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
