@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
+import Auftraggeber from '@/components/regiebericht/Auftraggeber'
 
 type PhotoItem = {
   name: string
