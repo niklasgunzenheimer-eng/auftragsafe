@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import Auftraggeber from '../../../components/regiebericht/Auftraggeber'
-
+import Projekt from '../../../components/regiebericht/Projekt'
 type PhotoItem = {
   name: string
   url: string
@@ -125,48 +125,8 @@ export default function NeuerRegieberichtPage() {
         </div>
 
         <div className="space-y-8">
-          <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
-            <h2 className="text-2xl font-bold mb-6">Auftraggeber</h2>
-
-            <div className="grid md:grid-cols-2 gap-4">
-              <input
-                value={kunde}
-                onChange={(e) => setKunde(e.target.value)}
-                placeholder="Kunde / Firma"
-                className={inputClass}
-              />
-              <input
-                value={ansprechpartner}
-                onChange={(e) => setAnsprechpartner(e.target.value)}
-                placeholder="Ansprechpartner"
-                className={inputClass}
-              />
-              <input
-                value={kundeStrasse}
-                onChange={(e) => setKundeStrasse(e.target.value)}
-                placeholder="Straße / Nr."
-                className={inputClass}
-              />
-              <input
-                value={kundePlzOrt}
-                onChange={(e) => setKundePlzOrt(e.target.value)}
-                placeholder="PLZ / Ort"
-                className={inputClass}
-              />
-              <input
-                value={kundeTelefon}
-                onChange={(e) => setKundeTelefon(e.target.value)}
-                placeholder="Telefon"
-                className={inputClass}
-              />
-              <input
-                value={kundeEmail}
-                onChange={(e) => setKundeEmail(e.target.value)}
-                placeholder="E-Mail"
-                className={inputClass}
-              />
-            </div>
-          </div>
+    
+    
 
 <Auftraggeber
   kunde={kunde}
